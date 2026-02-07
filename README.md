@@ -35,13 +35,14 @@
 ```bash
 git clone https://github.com/erfanesmizadh/ultimate-legend.git
 cd ultimate-legend
+
 اجازه اجرا به اسکریپت:
-Copy code
-Bash
+
+
 chmod +x install.sh
+
 اجرای اسکریپت نصب:
-Copy code
-Bash
+
 bash install.sh
 Interactive Config:
 از شما سوال می‌شود:
@@ -52,8 +53,8 @@ IP و PublicKey هر Tunnel
 WireGuard tunnels و routing به صورت خودکار ساخته می‌شوند
 Health Check هر دقیقه اجرا می‌شود و Tunnel خراب خودکار غیرفعال می‌شود.
 Bash Menu مدیریت Tunnel ها:
+
 پس از نصب، منوی زیر باز می‌شود:
-Copy code
 
 1) Show WireGuard Status
 2) Restart a Tunnel
@@ -64,20 +65,20 @@ Copy code
 7) Edit tunnels.conf
 0) Exit
 می‌توانید Tunnel ها را مدیریت کنید و تنظیمات config را ویرایش کنید.
+
 🛠️ راه‌اندازی روی سرورهای خارجی
 روی هر سرور خارجی، WireGuard نصب کنید:
-Copy code
-Bash
+
+
 apt update
 apt install -y wireguard
 برای هر Tunnel یک Keypair تولید کنید:
-Copy code
-Bash
+
 wg genkey | tee private.key | wg pubkey > public.key
 PublicKey هر Tunnel را هنگام اجرای اسکریپت ایران وارد کنید.
 سرور خارجی باید firewall مناسب داشته باشد تا پورت WireGuard باز باشد (51820+ برای هر Tunnel).
+
 🔧 فایل‌ها و مسیرها
-Copy code
 
 ultimate-legend/
 │
@@ -87,6 +88,7 @@ ultimate-legend/
 │   └─ tunnels.conf    # FOREIGN_IP و PUBLIC_KEY هر Tunnel
 └─ README.md
 main.conf و tunnels.conf قابل ویرایش با nano هستند و تغییرات خودکار در setup اعمال می‌شود.
+
 ⚡ ویژگی‌ها
 Multi WireGuard Tunnel با MTU بهینه (1280)
 Auto Health Check و Failover
@@ -95,6 +97,7 @@ Adaptive Congestion Control (BBR + fq_codel)
 Least-Latency Xray Outbound (برای اجرای Xray بعدی آماده)
 Reality / VLESS fragmentation برای Anti-DPI
 Bash Menu برای مدیریت Tunnel ها و مشاهده Routing
+
 ⚠️ نکات مهم
 MTU هر Tunnel = 1280 برای جلوگیری از fragmentation
 Xray outbound باید دارای fwmark=255 باشد تا Policy Routing اعمال شود
